@@ -42,8 +42,14 @@ function Outline:draw()
 
     for _, object in ipairs(Game.world.children) do
         if object:includes(Character) then
-            love.graphics.stencil((function () self:drawMask(object) end), "replace", 1)
-            love.graphics.setStencilTest("less", 1)
+
+            love.graphics.setColorMask(false)
+            love.graphics.setStencilMode("replace", "always", 1)
+
+            self:drawMask(object)
+
+            love.graphics.setStencilMode("keep", "less", 1)
+            love.graphics.setColorMask(true)
 
             love.graphics.setShader(Kristal.Shaders["AddColor"])
 
@@ -68,7 +74,7 @@ function Outline:draw()
 
             love.graphics.setShader()
 
-            love.graphics.setStencilTest()
+            love.graphics.setStencilMode()
         end
     end
 

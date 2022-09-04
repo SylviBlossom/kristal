@@ -58,13 +58,13 @@ function Mod:preInit()
         }))
     end)]]
     -- hiden ralsei
-    --[[Utils.hook(ActorSprite, "init", function(orig, self, ...)
+    Utils.hook(ActorSprite, "init", function(orig, self, ...)
         orig(self, ...)
 
         if self.actor.id == "ralsei" then
             self:addFX(MaskFX(function() return Game.world.player end))
         end
-    end)]]
+    end)
 end
 
 function Mod:postInit(new_file)
