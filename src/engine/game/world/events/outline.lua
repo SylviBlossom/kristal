@@ -45,6 +45,7 @@ function Outline:draw()
 
             love.graphics.setColorMask(false)
             love.graphics.setStencilMode("replace", "always", 1)
+            love.graphics.clear()
 
             self:drawMask(object)
 
