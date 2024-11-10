@@ -163,7 +163,6 @@ function love.load(args)
             Utils.pushPerformance("Total")
         end
         orig(...)
-        Kristal.Stage:update()
         Kristal.Overlay:update()
         if PERFORMANCE_TEST then
             Utils.popPerformance()
